@@ -50,6 +50,10 @@ call plug#begin('~/.config/nvim/plugged')
     set visualbell
     set t_vb=
     set tm=500
+
+" windows
+  set splitbelow
+  set splitright
 " }}}
 
 " Appearance {{{
@@ -120,6 +124,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Load colorschemes
     Plug 'chriskempson/base16-vim'
     Plug 'joshdick/onedark.vim'
+	Plug 'iCyMind/NeoSolarized'
 
     " LightLine {{{
         Plug 'itchyny/lightline.vim'
@@ -232,13 +237,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 " General Mappings {{{
     " set a map leader for more key combos
-    let mapleader = ','
+    let mapleader = ' '
 
     " remap esc
     inoremap jk <esc>
 
     " shortcut to save
-    nmap <leader>, :w<cr>
+    nmap <leader><space> :w<cr>
 
     " set paste toggle
     set pastetoggle=<leader>v
@@ -249,17 +254,13 @@ call plug#begin('~/.config/nvim/plugged')
     map <leader>eg :e! ~/.gitconfig<cr>
 
     " clear highlighted search
-    noremap <space> :set hlsearch! hlsearch?<cr>
+    noremap , :set hlsearch! hlsearch?<cr>
 
     " activate spell-checking alternatives
     nmap ;s :set invspell spelllang=en<cr>
 
     " markdown to html
     nmap <leader>md :%!markdown --html4tags <cr>
-
-    " remove extra whitespace
-    nmap <leader><space> :%s/\s\+$<cr>
-    nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
 
     inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
     inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
@@ -278,10 +279,14 @@ call plug#begin('~/.config/nvim/plugged')
     " enable . command in visual mode
     vnoremap . :normal .<cr>
 
-    map <silent> <C-h> :call functions#WinMove('h')<cr>
-    map <silent> <C-j> :call functions#WinMove('j')<cr>
-    map <silent> <C-k> :call functions#WinMove('k')<cr>
-    map <silent> <C-l> :call functions#WinMove('l')<cr>
+    Plug 'christoomey/vim-tmux-navigator'
+
+
+
+"    map <silent> <C-h> :call functions#WinMove('h')<cr>
+ "   map <silent> <C-j> :call functions#WinMove('j')<cr>
+  "  map <silent> <C-k> :call functions#WinMove('k')<cr>
+   " map <silent> <C-l> :call functions#WinMove('l')<cr>
 
     nnoremap <silent> <leader>z :call functions#zoom()<cr>
 
@@ -390,6 +395,8 @@ call plug#begin('~/.config/nvim/plugged')
     " detect indent style (tabs vs. spaces)
     Plug 'tpope/vim-sleuth'
 
+    " vimwiki
+    Plug 'vimwiki/vimwiki'
     " Startify: Fancy startup screen for vim {{{
         Plug 'mhinz/vim-startify'
 
@@ -608,7 +615,7 @@ call plug#begin('~/.config/nvim/plugged')
         let g:ale_fixers = {}
         let g:ale_fixers['javascript'] = ['prettier']
         let g:ale_fixers['typescript'] = ['prettier', 'tslint']
-        let g:ale_fixers['json'] = ['prettier']
+        let g:ale_fixers['json'] = ['fixjson']
         let g:ale_fixers['css'] = ['prettier']
         let g:ale_javascript_prettier_use_local_config = 1
         let g:ale_fix_on_save = 0
@@ -620,7 +627,7 @@ call plug#begin('~/.config/nvim/plugged')
         let g:UltiSnipsExpandTrigger="<tab>"
     " }}}
 
-    " Completion {{{
+,   " Completion {{{
         if (has('nvim'))
             Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         else
@@ -646,10 +653,11 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'gregsexton/MatchTag', { 'for': 'html' }
     " }}}
 
-    " TypeScript {{{
+    " JavaScript/TypeScript {{{
         Plug 'ianks/vim-tsx', { 'for': 'typescript' }
         Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
+        Plug 'ternjs/tern_for_vim'
+        let g:tern_map_keys=1
         Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
         let g:nvim_typescript#max_completion_detail=100
 		let g:nvim_typescript#diagnostics_enable=0
@@ -664,14 +672,15 @@ call plug#end()
 " Colorscheme and final setup {{{
     " This call must happen after the plug#end() call to ensure
     " that the colorschemes have been loaded
-    if filereadable(expand("~/.vimrc_background"))
-        let base16colorspace=256
-        source ~/.vimrc_background
-    else
-        let g:onedark_termcolors=16
-        let g:onedark_terminal_italics=1
-        colorscheme onedark
-    endif
+    "if filereadable(expand("~/.vimrc_background"))
+    "    let base16colorspace=256
+    "    source ~/.vimrc_background
+    "else
+    "    let g:onedark_termcolors=16
+    "    let g:onedark_terminal_italics=1
+    "    colorscheme onedark
+    "endif
+   colorscheme NeoSolarized 
     syntax on
     filetype plugin indent on
     " make the highlighting of tabs and other non-text less annoying

@@ -30,15 +30,18 @@ fi
 
 
 # initialize autocomplete
-autoload -U compinit add-zsh-hook
-compinit
+#autoload -U compinit add-zsh-hook
+#compinit
 
 for config ($ZSH/**/*completion.sh) source $config
 
 export EDITOR='nvim'
 export GIT_EDITOR='nvim'
+alias git='LANG=en_GB git'
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/opt/postgresql@10/bin:$PATH
+export PATH=/Users/davidjohansson/kod/utils:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
@@ -75,7 +78,7 @@ if [ -z ${RELOAD}  ]; then
     source $ZPLUG_HOME/init.zsh
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
     zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-    zplug 'zsh-users/zsh-autosuggestions'
+#    zplug 'zsh-users/zsh-autosuggestions'
     export NVM_AUTO_USE=true
     # export NVM_NO_USE=true
     zplug 'lukechilds/zsh-nvm'
