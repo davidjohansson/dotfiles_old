@@ -1,5 +1,9 @@
+
+# Davids stuff
+export DOOER_FAVRO_CREDENTIALS=david.johansson@dooer.com:3Fcv-s_HHIwifZUaAySLKlwbY4kbJJN2e0WQO1H3tHW
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
+
 
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
@@ -119,3 +123,4 @@ export LESS_TERMCAP_mh=$(tput dim)
 # https://github.com/koalaman/shellcheck/wiki
 #
 # export SHELLCHECK_OPTS=""
+PATH=$PATH:/Users/davidjohansson/kod/environment-remote/bin

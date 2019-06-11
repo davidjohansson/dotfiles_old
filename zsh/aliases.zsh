@@ -1,3 +1,8 @@
+# Davids own stuff
+alias enre='environment-remote -u david.johansson -e davidj'
+alias tod='export AUTH_TOKEN_DEV=`indian -e d-e003 -T david.johansson+admin@dooer.com` && echo $AUTH_TOKEN_DEV'
+alias todj='indian -e d-e003 -j -T david.johansson+admin@dooer.com'
+
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
 
