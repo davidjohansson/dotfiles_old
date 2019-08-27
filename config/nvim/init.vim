@@ -94,9 +94,10 @@ call plug#begin('~/.config/nvim/plugged')
     set foldlevel=1
 
     " toggle invisible characters
-    set list
-    set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-    set showbreak=↪
+	" David: det här gjorde att cursorn på varje nyrad blev mörk
+	 " set list
+	 " set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+	" set showbreak=↪
 
     set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
     " switch cursor to line when in insert mode, and block when not
@@ -125,7 +126,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'chriskempson/base16-vim'
     Plug 'joshdick/onedark.vim'
 	Plug 'iCyMind/NeoSolarized'
-
+    Plug 'lifepillar/vim-solarized8'
     " LightLine {{{
         Plug 'itchyny/lightline.vim'
         Plug 'nicknisi/vim-base16-lightline'
@@ -652,8 +653,10 @@ call plug#begin('~/.config/nvim/plugged')
         " match tags in html, similar to paren support
         Plug 'gregsexton/MatchTag', { 'for': 'html' }
     " }}}
-
-    " JavaScript/TypeScript {{{
+    " Clojure
+    Plug 'guns/vim-clojure-static'
+	Plug 'tpope/vim-fireplace'
+    "" JavaScript/TypeScript {{{
         Plug 'ianks/vim-tsx', { 'for': 'typescript' }
         Plug 'Shougo/vimproc.vim', { 'do': 'make' }
         Plug 'ternjs/tern_for_vim'
@@ -672,15 +675,17 @@ call plug#end()
 " Colorscheme and final setup {{{
     " This call must happen after the plug#end() call to ensure
     " that the colorschemes have been loaded
-    "if filereadable(expand("~/.vimrc_background"))
-    "    let base16colorspace=256
-    "    source ~/.vimrc_background
-    "else
-    "    let g:onedark_termcolors=16
-    "    let g:onedark_terminal_italics=1
-    "    colorscheme onedark
-    "endif
-   colorscheme NeoSolarized 
+    " if filereadable(expand("~/.vimrc_background"))
+    "     let base16colorspace=256
+    "     source ~/.vimrc_background
+    " else
+    "     let g:onedark_termcolors=16
+    "     let g:onedark_terminal_italics=1
+    "     colorscheme onedark
+    " endif
+	":
+	set background=dark  
+	colorscheme solarized8
     syntax on
     filetype plugin indent on
     " make the highlighting of tabs and other non-text less annoying

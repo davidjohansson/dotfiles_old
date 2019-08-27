@@ -3,7 +3,8 @@
 export DOOER_FAVRO_CREDENTIALS=david.johansson@dooer.com:3Fcv-s_HHIwifZUaAySLKlwbY4kbJJN2e0WQO1H3tHW
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
-
+NODE_ICU_DATA=/usr/local/lib/node_modules/full-icu
+export NODE_ICU_DATA
 
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
@@ -72,6 +73,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+bind -x '"\C-p": vim $(fzf);'
 
 # Base16 shell setup
 BASE16_SHELL=$HOME/.config/base16-shell/
@@ -96,10 +98,10 @@ if [ -z ${RELOAD}  ]; then
 
     zplug load
 fi
-# alias git to hub
-if type hub > /dev/null 2>&1; then
-    eval "$(hub alias -s)"
-fi
+# # alias git to hub
+# if type hub > /dev/null 2>&1; then
+#     eval "$(hub alias -s)"
+# fi
 
 # move to next word with ctrl-F
 bindkey -M viins "^F" vi-forward-word
