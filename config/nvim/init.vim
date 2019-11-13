@@ -664,10 +664,31 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
         let g:nvim_typescript#max_completion_detail=100
 		let g:nvim_typescript#diagnostics_enable=0
+        Plug 'geekjuice/vim-mocha'
     " }}}
+
+
+ " Lisp Scheme {{{
+        Plug 'jgdavey/tslime.vim'
+		let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+        " }}}
+
+
+
 
     Plug 'sheerun/vim-polyglot'
     let g:vim_json_syntax_conceal = 0
+
+map <Leader>mt :call RunCurrentSpecFile()<CR>
+map <Leader>ms :call RunNearestSpec()<CR>
+map <Leader>ml :call RunLastSpec()<CR>
+map <Leader>ma :call RunAllSpecs()<CR>
+
+let g:mocha_js_command = "!NODE_ENV=test mocha --recursive --no-colors {spec}"
 " }}}
 
 call plug#end()

@@ -126,3 +126,4 @@ export LESS_TERMCAP_mh=$(tput dim)
 #
 # export SHELLCHECK_OPTS=""
 PATH=$PATH:/Users/davidjohansson/kod/environment-remote/bin
+PATH=$PATH:/Applications/Racket\7.4/bin
