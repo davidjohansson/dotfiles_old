@@ -5,10 +5,10 @@ alias tod='export AUTH_TOKEN_DEV=`indian -e d-e003 -T david.johansson+admin@dooe
 alias todj='indian -e d-e003 -j -T david.johansson+admin@dooer.com'
 alias git='LANG=en_US git'
 alias ybt='yarn build-translations'
-alias psqle='psql dooer -U dooeradmin -h 172.30.0.8 -p 5432'
+alias psqle='psql dooer -U dooeradmin -h 172.30.0.6 -p 5432'
 alias psqll='psql dooer'
 
-alias atd='indian -e d-e003 -T david.johansson+admin@dooer.com'
+alias atd='indian -e d-e023 -T david.johansson+admin@dooer.com'
 alias ats='indian -e s-e009 -T david.johansson+admin@dooer.com'
 alias atr='enre generate-token david.johansson+admin@dooer.com'
 
