@@ -238,14 +238,6 @@
                     "to": {
                         "key_code": "escape"
                     }
-                },
-                {
-                    "from": {
-                        "key_code": "right_arrow"
-                    },
-                    "to": {
-                        "key_code": "fn"
-                    }
                 }
             ],
             "virtual_hid_keyboard": {

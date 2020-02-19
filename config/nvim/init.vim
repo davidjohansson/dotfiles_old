@@ -398,6 +398,16 @@ call plug#begin('~/.config/nvim/plugged')
 
     " vimwiki
     Plug 'vimwiki/vimwiki'
+
+    let g:vimwiki_list = [
+				\{'path': '~/Dropbox/vimwiki/dooer/',
+                      \ 'syntax': 'markdown', 'ext': '.md'},
+    				\{'path': '~/Dropbox/vimwiki/tech/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}
+					  \]
+
+    Plug 'wookayin/vim-typora'
+
     " Startify: Fancy startup screen for vim {{{
         Plug 'mhinz/vim-startify'
 

@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Vi Mode [fn + hjkl]",
+                        "description": "Change Fn + h/j/k/l to Arrows",
                         "manipulators": [
                             {
                                 "from": {
@@ -26,10 +26,7 @@
                                             "fn"
                                         ],
                                         "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -48,10 +45,7 @@
                                             "fn"
                                         ],
                                         "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -70,10 +64,7 @@
                                             "fn"
                                         ],
                                         "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -92,10 +83,7 @@
                                             "fn"
                                         ],
                                         "optional": [
-                                            "caps_lock",
-                                            "command",
-                                            "option",
-                                            "shift"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -229,22 +217,6 @@
                     },
                     "to": {
                         "key_code": "escape"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "up_arrow"
-                    },
-                    "to": {
-                        "key_code": "escape"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "right_arrow"
-                    },
-                    "to": {
-                        "key_code": "fn"
                     }
                 }
             ],
