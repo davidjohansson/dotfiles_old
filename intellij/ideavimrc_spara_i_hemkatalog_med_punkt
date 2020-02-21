@@ -1,0 +1,8 @@
+set multiple-cursors:
+set surround
+set clipboard+=unnamed
+set foldmethod=syntax
+let foldcolumn=1
+set javaScript_fold=1
+set foldlevelstart=99
+
