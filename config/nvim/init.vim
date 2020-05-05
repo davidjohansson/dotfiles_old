@@ -399,10 +399,14 @@ call plug#begin('~/.config/nvim/plugged')
     " vimwiki
     Plug 'vimwiki/vimwiki'
 
+    Plug 'godlygeek/tabular'
+
+    Plug 'plasticboy/vim-markdown'
+
     let g:vimwiki_list = [
-				\{'path': '~/Dropbox/vimwiki/dooer/',
+				\{'path': '~/vimwiki/tre/',
                       \ 'syntax': 'markdown', 'ext': '.md'},
-    				\{'path': '~/Dropbox/vimwiki/tech/',
+    				\{'path': '~/vimwiki/tech/',
                       \ 'syntax': 'markdown', 'ext': '.md'}
 					  \]
 

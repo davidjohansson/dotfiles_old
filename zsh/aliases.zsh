@@ -1,16 +1,6 @@
 # Davids own stuff
-alias enre='environment-remote -u david.johansson -e davidj'
-alias enre2='environment-remote -u david.johansson -e davidj2'
-alias tod='export AUTH_TOKEN_DEV=`indian -e d-e003 -T david.johansson+admin@dooer.com` && echo $AUTH_TOKEN_DEV'
-alias todj='indian -e d-e003 -j -T david.johansson+admin@dooer.com'
 alias git='LANG=en_US git'
-alias ybt='yarn build-translations'
-alias psqle='psql dooer -U dooeradmin -h 172.30.0.6 -p 5432'
-alias psqll='psql dooer'
-
-alias atd='indian -e d-e023 -T david.johansson+admin@dooer.com'
-alias ats='indian -e s-e009 -T david.johansson+admin@dooer.com'
-alias atr='enre generate-token david.johansson+admin@dooer.com'
+alias cl="clear"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
@@ -42,8 +32,6 @@ alias grep='grep --color=auto'
 alias df='df -h' # disk free, in Gigabytes, not bytes
 alias du='du -h -c' # calculate disk usage for a folder
 
-# Applications
-alias ios='open -a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

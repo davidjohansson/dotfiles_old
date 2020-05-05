@@ -1,7 +1,7 @@
 # gitconfig
 [user]
-	name = david
-	email = david.u.johansson@gmail.com
+	name = David Johansson
+	email = david.johansson4@tre.se
 [github]
 	user = davidjohansson
 [init]
@@ -139,6 +139,7 @@
     renames = copies
     mnemonicprefix = true
     compactionHeuristic = true
+	tool = Kaleidoscope
 [difftool]
     prompt = false
 [apply]
@@ -167,3 +168,7 @@
 [pager]
     diff = "diff-so-fancy | less --tabs=4 -RFX"
     show = "diff-so-fancy | less --tabs=4 -RFX"
+[merge]
+	tool = Kaleidoscope
+[mergetool]
+	prompt = false
