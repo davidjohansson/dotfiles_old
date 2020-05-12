@@ -6,6 +6,8 @@ export ZSH=$DOTFILES/zsh
 NODE_ICU_DATA=/usr/local/lib/node_modules/full-icu
 export NODE_ICU_DATA
 
+export PATH=/Users/david/bin:$PATH
+
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
 
