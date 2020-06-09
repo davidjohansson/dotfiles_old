@@ -1,0 +1,15 @@
+#!/bin/bash
+FILEID=$( date +%Y%m%d%H%M%S )
+ZETTLEKASTENDIR="$HOME/zettelkasten/"
+FILENAME="${FILEID}.md"
+PATHWITHFILE="${ZETTLEKASTENDIR}${FILENAME}"
+echo $1 > "${PATHWITHFILE}"
+echo -e '\n' >> "${PATHWITHFILE}"
+shift
+for i in "$@"
+do
+	echo "#$i" >> "${PATHWITHFILE}"
+done
+echo $FILEID >> "${PATHWITHFILE}"
+
+echo "$PATHWITHFILE"

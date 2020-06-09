@@ -1,6 +1,11 @@
 # Davids own stuff
 alias git='LANG=en_US git'
 alias cl="clear"
+alias msr="mvn spring-boot:run"
+alias xopen="xargs -I {} open {}"
+alias xnmd="xargs nvim '+set nospell'"
+alias typora="open -a typora"
+alias xtyp="xargs open -a typora"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'

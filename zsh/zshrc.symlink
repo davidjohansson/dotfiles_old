@@ -46,7 +46,7 @@ alias git='LANG=en_GB git'
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/opt/postgresql@10/bin:$PATH
-export PATH=/Users/davidjohansson/kod/utils:$PATH
+export PATH=/Users/johansson044/kod/utils:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then

@@ -74,8 +74,15 @@ fag(){
 fif() {
     if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
     local file
+    file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$@" | fzf-tmux -r 100%  --preview="rga --ignore-case --pretty --context 30 '"$@"' {}")" && typora "$file"
+}
+
+frf() {
+    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+    local file
     file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$@" | fzf-tmux -r 100%  --preview="rga --ignore-case --pretty --context 30 '"$@"' {}")" && nvim "$file"
 }
+
 
 fof() {
 if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi

@@ -1,4 +1,8 @@
 " .vimrc / init.vim
+"
+" i kanskse
+" inte
+" ::
 " The following vim/neovim configuration works for both Vim and NeoVim
 
 " ensure vim-plug is installed and then load it
@@ -7,13 +11,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " General {{{
     " Abbreviations
-    abbr funciton function
-    abbr teh the
-    abbr tempalte template
-    abbr fitler filter
-    abbr cosnt const
-    abbr attribtue attribute
-    abbr attribuet attribute
 
     set autoread " detect when a file is changed
 
@@ -57,6 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
 " }}}
 
 " Appearance {{{
+    set nospell
     set number " show line numbers
     set wrap " turn on line wrapping
     set wrapmargin=8 " wrap lines when coming within n characters from side
@@ -224,10 +222,10 @@ call plug#begin('~/.config/nvim/plugged')
         endfunction
 
         function! LightlineUpdate()
-            if g:goyo_entered == 0
-                " do not update lightline if in Goyo mode
-                call lightline#update()
-            endif
+            " if g:goyo_entered == 0
+            "     " do not update lightline if in Goyo mode
+            "     call lightline#update()
+            " endif
         endfunction
 
         augroup alestatus
@@ -258,7 +256,7 @@ call plug#begin('~/.config/nvim/plugged')
     noremap , :set hlsearch! hlsearch?<cr>
 
     " activate spell-checking alternatives
-    nmap ;s :set invspell spelllang=en<cr>
+    " nmap ;s :set invspell spelllang=en<cr>
 
     " markdown to html
     nmap <leader>md :%!markdown --html4tags <cr>
@@ -397,59 +395,20 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-sleuth'
 
     " vimwiki
-    Plug 'vimwiki/vimwiki'
+    " Plug 'vimwiki/vimwiki'
 
     Plug 'godlygeek/tabular'
 
     Plug 'plasticboy/vim-markdown'
 
-    let g:vimwiki_list = [
-				\{'path': '~/vimwiki/tre/',
-                      \ 'syntax': 'markdown', 'ext': '.md'},
-    				\{'path': '~/vimwiki/tech/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}
-					  \]
+    " let g:vimwiki_list = [
+				" \{'path': '~/vimwiki/tre/',
+    "                   \ 'syntax': 'markdown', 'ext': '.md'},
+    " 				\{'path': '~/vimwiki/tech/',
+    "                   \ 'syntax': 'markdown', 'ext': '.md'}
+					  " \]
 
-    Plug 'wookayin/vim-typora'
 
-    " Startify: Fancy startup screen for vim {{{
-        Plug 'mhinz/vim-startify'
-
-        " Don't change to directory when selecting a file
-        let g:startify_files_number = 5
-        let g:startify_change_to_dir = 0
-        let g:startify_custom_header = [ ]
-        let g:startify_relative_path = 1
-        let g:startify_use_env = 1
-
-        function! s:list_commits()
-            let git = 'git -C ' . getcwd()
-            let commits = systemlist(git . ' log --oneline | head -n5')
-            let git = 'G' . git[1:]
-            return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
-        endfunction
-
-        " Custom startup list, only show MRU from current directory/project
-        let g:startify_lists = [
-        \  { 'type': 'dir',       'header': [ 'Files '. getcwd() ] },
-        \  { 'type': function('s:list_commits'), 'header': [ 'Recent Commits' ] },
-        \  { 'type': 'sessions',  'header': [ 'Sessions' ]       },
-        \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      },
-        \  { 'type': 'commands',  'header': [ 'Commands' ]       },
-        \ ]
-
-        let g:startify_commands = [
-        \   { 'up': [ 'Update Plugins', ':PlugUpdate' ] },
-        \   { 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
-        \ ]
-
-        let g:startify_bookmarks = [
-            \ { 'c': '~/code/dotfiles/config/nvim/init.vim' },
-            \ { 'z': '~/code/dotfiles/zsh/zshrc.symlink' }
-        \ ]
-
-        autocmd User Startified setlocal cursorline
-    " }}}
 
     " Close buffers but keep splits
     Plug 'moll/vim-bbye'
@@ -458,30 +417,30 @@ call plug#begin('~/.config/nvim/plugged')
     " Writing in vim {{{{
         Plug 'junegunn/goyo.vim'
 
-        let g:goyo_entered = 0
-        function! s:goyo_enter()
-            silent !tmux set status off
-            let g:goyo_entered = 1
-            set noshowmode
-            set noshowcmd
-            set scrolloff=999
-            set wrap
-            setlocal textwidth=0
-            setlocal wrapmargin=0
-        endfunction
+        " let g:goyo_entered = 0
+        " function! s:goyo_enter()
+        "     silent !tmux set status off
+        "     let g:goyo_entered = 1
+        "     set noshowmode
+        "     set noshowcmd
+        "     set scrolloff=999
+        "     set wrap
+        "     setlocal textwidth=0
+        "     setlocal wrapmargin=0
+        " endfunction
 
-        function! s:goyo_leave()
-            silent !tmux set status on
-            let g:goyo_entered = 0
-            set showmode
-            set showcmd
-            set scrolloff=5
-            set textwidth=120
-            set wrapmargin=8
-        endfunction
+        " function! s:goyo_leave()
+        "     silent !tmux set status on
+        "     let g:goyo_entered = 0
+        "     set showmode
+        "     set showcmd
+        "     set scrolloff=5
+        "     set textwidth=120
+        "     set wrapmargin=8
+        " endfunction
 
-        autocmd! User GoyoEnter nested call <SID>goyo_enter()
-        autocmd! User GoyoLeave nested call <SID>goyo_leave()
+        " autocmd! User GoyoEnter nested call <SID>goyo_enter()
+        " autocmd! User GoyoLeave nested call <SID>goyo_leave()
     " }}}
 
     " context-aware pasting
