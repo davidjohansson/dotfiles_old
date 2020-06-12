@@ -1,1 +1,1 @@
-/Users/johansson044/kod/trello-cli/bin/trello add-card -b David -l Backlog "$1" "$2"
+~/kod/trello-cli/bin/trello add-card -b David -l Backlog "$1" "$2"
