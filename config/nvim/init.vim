@@ -642,6 +642,7 @@ call plug#begin('~/.config/nvim/plugged')
     " }}}
     " Clojure
     Plug 'guns/vim-clojure-static'
+    Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'tpope/vim-fireplace'
     "" JavaScript/TypeScript {{{
         Plug 'ianks/vim-tsx', { 'for': 'typescript' }
