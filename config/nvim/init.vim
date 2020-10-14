@@ -596,11 +596,7 @@ call plug#begin('~/.config/nvim/plugged')
         nmap <silent><leader>af :ALEFix<cr>
     " }}}
 
-    " UltiSnips {{{
-        Plug 'SirVer/ultisnips' " Snippets plugin
-        let g:UltiSnipsExpandTrigger="<tab>"
-    " }}}
-    
+
      " Javacomplete2 {{{
         Plug 'artur-shaik/vim-javacomplete2'
 
@@ -615,7 +611,12 @@ call plug#begin('~/.config/nvim/plugged')
 		imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
     " }}}
 
-,   " Completion {{{
+    " " ,   " Completion {{{
+    "         Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" "     " }}}
+
+
+   " Completion {{{
         if (has('nvim'))
             Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         else

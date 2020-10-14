@@ -130,5 +130,10 @@ export LESS_TERMCAP_mh=$(tput dim)
 # https://github.com/koalaman/shellcheck/wiki
 #
 # export SHELLCHECK_OPTS=""
-PATH=$PATH:/Users/davidjohansson/kod/environment-remote/bin
 PATH=$PATH:/Applications/Racket\7.4/bin
+#
+#jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/bitcomplete bit
