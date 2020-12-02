@@ -1,0 +1,43 @@
+{
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitPath": "/Users/johansson044/.dotfiles/config/nvim/init.vim",
+    "java.semanticHighlighting.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.explorerKind": "external",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/johansson044/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.accessibilitySupport": "off",
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "workbench.activityBar.visible": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    "vim.useSystemClipboard": true,
+    "vim.surround": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

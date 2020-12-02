@@ -6,8 +6,6 @@
 " The following vim/neovim configuration works for both Vim and NeoVim
 
 " ensure vim-plug is installed and then load it
-
-source $HOME/.dotfiles/config/nvim/plug-config/coc.vim
 call functions#PlugLoad()
 call plug#begin('~/.config/nvim/plugged')
 
@@ -79,6 +77,8 @@ call plug#begin('~/.config/nvim/plugged')
     set mat=2 " how many tenths of a second to blink
 
     " Tab control
+    set noexpandtab " insert tabs rather than spaces for <Tab>
+    set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
     set tabstop=4 " the visible width of tabs
     set softtabstop=4 " edit as if the tabs are 4 characters wide
     set shiftwidth=4 " number of spaces to use for indent and unindent
@@ -258,8 +258,19 @@ call plug#begin('~/.config/nvim/plugged')
     " activate spell-checking alternatives
     " nmap ;s :set invspell spelllang=en<cr>
 
+    " markdown to html
+    nmap <leader>md :%!markdown --html4tags <cr>
+
+    inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+    inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+
     nmap <leader>l :set list!<cr>
 
+    " Textmate style indentation
+    vmap <leader>[ <gv
+    vmap <leader>] >gv
+    nmap <leader>[ <<
+    nmap <leader>] >>
 
     " switch between current and last buffer
     nmap <leader>. <c-^>
@@ -270,10 +281,35 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
 
 
+
+"    map <silent> <C-h> :call functions#WinMove('h')<cr>
+ "   map <silent> <C-j> :call functions#WinMove('j')<cr>
+  "  map <silent> <C-k> :call functions#WinMove('k')<cr>
+   " map <silent> <C-l> :call functions#WinMove('l')<cr>
+
     nnoremap <silent> <leader>z :call functions#zoom()<cr>
 
     map <leader>wc :wincmd q<cr>
 
+    inoremap <tab> <c-r>=functions#Smart_TabComplete()<CR>
+
+    " move line mappings
+    " ∆ is <A-j> on macOS
+    " ˚ is <A-k> on macOS
+    nnoremap ∆ :m .+1<cr>==
+    nnoremap ˚ :m .-2<cr>==
+    inoremap ∆ <Esc>:m .+1<cr>==gi
+    inoremap ˚ <Esc>:m .-2<cr>==gi
+    vnoremap ∆ :m '>+1<cr>gv=gv
+    vnoremap ˚ :m '<-2<cr>gv=gv
+
+    vnoremap $( <esc>`>a)<esc>`<i(<esc>
+    vnoremap $[ <esc>`>a]<esc>`<i[<esc>
+    vnoremap ${ <esc>`>a}<esc>`<i{<esc>
+    vnoremap $" <esc>`>a"<esc>`<i"<esc>
+    vnoremap $' <esc>`>a'<esc>`<i'<esc>
+    vnoremap $\ <esc>`>o*/<esc>`<O/*<esc>
+    vnoremap $< <esc>`>a><esc>`<i<<esc>
 
     " toggle cursor line
     nnoremap <leader>i :set cursorline!<cr>
@@ -320,7 +356,6 @@ call plug#begin('~/.config/nvim/plugged')
 " General Functionality {{{
     " better terminal integration
     " substitute, search, and abbreviate multiple variants of a word
-	Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'tpope/vim-abolish'
 
     " search inside files using ripgrep. This plugin provides an Ack command.
@@ -353,6 +388,9 @@ call plug#begin('~/.config/nvim/plugged')
     " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
     Plug 'AndrewRadev/splitjoin.vim'
 
+    " add end, endif, etc. automatically
+    Plug 'tpope/vim-endwise'
+
     " detect indent style (tabs vs. spaces)
     Plug 'tpope/vim-sleuth'
 
@@ -375,6 +413,35 @@ call plug#begin('~/.config/nvim/plugged')
     " Close buffers but keep splits
     Plug 'moll/vim-bbye'
     nmap <leader>b :Bdelete<cr>
+
+    " Writing in vim {{{{
+        Plug 'junegunn/goyo.vim'
+
+        " let g:goyo_entered = 0
+        " function! s:goyo_enter()
+        "     silent !tmux set status off
+        "     let g:goyo_entered = 1
+        "     set noshowmode
+        "     set noshowcmd
+        "     set scrolloff=999
+        "     set wrap
+        "     setlocal textwidth=0
+        "     setlocal wrapmargin=0
+        " endfunction
+
+        " function! s:goyo_leave()
+        "     silent !tmux set status on
+        "     let g:goyo_entered = 0
+        "     set showmode
+        "     set showcmd
+        "     set scrolloff=5
+        "     set textwidth=120
+        "     set wrapmargin=8
+        " endfunction
+
+        " autocmd! User GoyoEnter nested call <SID>goyo_enter()
+        " autocmd! User GoyoLeave nested call <SID>goyo_leave()
+    " }}}
 
     " context-aware pasting
     Plug 'sickill/vim-pasta'
@@ -531,30 +598,33 @@ call plug#begin('~/.config/nvim/plugged')
 
 
      " Javacomplete2 {{{
-      "  Plug 'artur-shaik/vim-javacomplete2'
+        Plug 'artur-shaik/vim-javacomplete2'
 
-	"	autocmd FileType java setlocal omnifunc=javacomplete#Complete
-	"	nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-	"	imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-	"	nmap <F5> <Plug>(JavaComplete-Imports-Add)
-	"	imap <F5> <Plug>(JavaComplete-Imports-Add)
-	"	nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-	"	imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-	"	nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-	"	imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+		autocmd FileType java setlocal omnifunc=javacomplete#Complete
+		nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+		imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+		nmap <F5> <Plug>(JavaComplete-Imports-Add)
+		imap <F5> <Plug>(JavaComplete-Imports-Add)
+		nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+		imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+		nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+		imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
     " }}}
 
+    " " ,   " Completion {{{
+    "         Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" "     " }}}
 
 
    " Completion {{{
-"        if (has('nvim'))
- "           Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
- "       else
-  "          Plug 'Shougo/deoplete.nvim'
-   "         Plug 'roxma/nvim-yarp'
-    "        Plug 'roxma/vim-hug-neovim-rpc'
-     "   endif
-      "  let g:deoplete#enable_at_startup = 1
+        if (has('nvim'))
+            Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        else
+            Plug 'Shougo/deoplete.nvim'
+            Plug 'roxma/nvim-yarp'
+            Plug 'roxma/vim-hug-neovim-rpc'
+        endif
+        let g:deoplete#enable_at_startup = 1
     " }}}
 " }}}
 
@@ -573,15 +643,16 @@ call plug#begin('~/.config/nvim/plugged')
     " }}}
     " Clojure
     Plug 'guns/vim-clojure-static'
+    Plug 'artur-shaik/vim-javacomplete2'
 	Plug 'tpope/vim-fireplace'
     "" JavaScript/TypeScript {{{
         Plug 'ianks/vim-tsx', { 'for': 'typescript' }
-"        Plug 'Shougo/vimproc.vim', { 'do': 'make' }
- "       Plug 'ternjs/tern_for_vim'
-  "      let g:tern_map_keys=1
+        Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+        Plug 'ternjs/tern_for_vim'
+        let g:tern_map_keys=1
         Plug 'mhartington/nvim-typescript', {'do': ':!install.sh \| UpdateRemotePlugins'}
-   "     let g:nvim_typescript#max_completion_detail=100
-	"	let g:nvim_typescript#diagnostics_enable=0
+        let g:nvim_typescript#max_completion_detail=100
+		let g:nvim_typescript#diagnostics_enable=0
         Plug 'geekjuice/vim-mocha'
     " }}}
 
@@ -598,8 +669,8 @@ nmap <C-c>r <Plug>SetTmuxVars
 
 
 
-   " Plug 'sheerun/vim-polyglot'
-    "let g:vim_json_syntax_conceal = 0
+    Plug 'sheerun/vim-polyglot'
+    let g:vim_json_syntax_conceal = 0
 
 map <Leader>mt :call RunCurrentSpecFile()<CR>
 map <Leader>ms :call RunNearestSpec()<CR>
