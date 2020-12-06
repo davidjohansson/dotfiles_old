@@ -137,3 +137,5 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
+
+export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
