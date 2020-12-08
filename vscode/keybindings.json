@@ -34,12 +34,13 @@
         "key": "ctrl+alt+cmd+s",
         "command": "workbench.action.tasks.reRunTask"
     },
-
     //CTRL-r för reverse I-search i terminalen
     {
         "key": "ctrl+r",
         "command": "workbench.action.terminal.sendSequence",
-        "args": { "text": "\u0012" },
+        "args": {
+            "text": "\u0012"
+        },
         "when": "terminalFocus"
-      },
+    }
 ]

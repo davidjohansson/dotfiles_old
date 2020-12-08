@@ -23,6 +23,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
+    "vim.enableNeovim": false,
+    "vim.neovimPath": "/usr/local/bin/nvim"	,
     "vim.useSystemClipboard": true,
     "vim.surround": true,
     "vim.useCtrlKeys": true,
@@ -39,5 +41,8 @@
 
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
     }
 }
