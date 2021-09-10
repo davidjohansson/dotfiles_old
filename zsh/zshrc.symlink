@@ -10,6 +10,8 @@ source "$HOME/kod/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
 
 export PATH=/Users/david/bin:$PATH
+export PATH=/Users/johansson044/kod/h2docker:$PATH
+
 
 # display how long all tasks over 10 seconds take
 export REPORTTIME=10
