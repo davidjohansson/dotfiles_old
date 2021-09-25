@@ -7,7 +7,11 @@ alias xnmd="xargs nvim '+set nospell'"
 alias typora="open -a typora"
 alias xtyp="xargs open -a typora"
 alias zx="zx --quite"
-
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
 
