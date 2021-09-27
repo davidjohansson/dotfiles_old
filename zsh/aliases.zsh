@@ -12,6 +12,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+alias pd="pushd ~/.dotfiles"
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
 

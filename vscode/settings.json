@@ -49,5 +49,6 @@
         "editor.defaultFormatter": "vscode.html-language-features"
     },
     "editor.minimap.enabled": false,
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "security.workspace.trust.untrustedFiles": "open"
 }
