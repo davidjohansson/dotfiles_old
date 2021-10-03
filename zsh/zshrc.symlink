@@ -1,11 +1,12 @@
 
 # Davids stuff
-export DOOER_FAVRO_CREDENTIALS=david.johansson@dooer.com:3Fcv-s_HHIwifZUaAySLKlwbY4kbJJN2e0WQO1H3tHW
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 NODE_ICU_DATA=/usr/local/lib/node_modules/full-icu
 export NODE_ICU_DATA
 source "$HOME/kod/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+#[[ $TERM != "screen" ]] && exec tmux
+
 
 
 
@@ -52,7 +53,6 @@ export GIT_EDITOR='nvim'
 alias git='LANG=en_GB git'
 
 export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/opt/postgresql@10/bin:$PATH
 export PATH=/Users/johansson044/kod/utils:$PATH
 
 # add /usr/local/sbin
@@ -142,5 +142,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
+complete -C '/usr/local/bin/aws_completer' aws
+
 export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
