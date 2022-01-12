@@ -2,6 +2,10 @@
 # functions
 ####################
 
+function zshaddhistory() {
+	echo "${1%%$'\n'}|${PWD}   " >> ~/.zsh_history_ext
+}
+
 function md() {
     mkdir -p $1
     cd $1
