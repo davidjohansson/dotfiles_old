@@ -1,7 +1,5 @@
 {
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitPath": "/Users/johansson044/.dotfiles/config/nvim/init.vim",
-    "java.semanticHighlighting.enabled": true,
+   "vscode-neovim.neovimExecutablePaths.darwin":"/usr/local/bin/nvim",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
@@ -12,7 +10,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "terminal.explorerKind": "external",
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/johansson044/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Solarized Dark",
     "editor.accessibilitySupport": "off",
     "java.project.importOnFirstTimeStartup": "automatic",
     "workbench.activityBar.visible": true,
@@ -21,19 +19,6 @@
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-
-    "vim.enableNeovim": false,
-    "vim.neovimPath": "/usr/local/bin/nvim"	,
-    "vim.useSystemClipboard": true,
-    "vim.surround": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.leader": "<space>",
-    
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
     },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -50,5 +35,6 @@
     },
     "editor.minimap.enabled": false,
     "workbench.statusBar.visible": true,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/johansson044/.dotfiles/config/nvim/init.vim"
 }

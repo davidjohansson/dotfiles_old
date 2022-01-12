@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 

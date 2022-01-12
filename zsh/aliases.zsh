@@ -13,6 +13,16 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias pd="pushd ~/.dotfiles"
+alias k="kubectl"
+alias ks="kubectl -n sales"
+alias knr="kubectl --kubeconfig ~/.kube/config-nr -n sales"
+alias k9nr="k9s --kubeconfig ~/.kube/config-nr -n sales"
+alias k9pr="k9s --kubeconfig ~/.kube/config-prd -n sales"
+alias kpr="kubectl --kubeconfig ~/.kube/config-prd -n sales"
+alias kbt="kubectl --kubeconfig ~/.kube/config -n sales"
+alias klo="kubectl --kubeconfig ~/.kube/config-local -n sales"
+alias eg="exa --long --header --inode --git"
+
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
 
