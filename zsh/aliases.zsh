@@ -22,6 +22,7 @@ alias kpr="kubectl --kubeconfig ~/.kube/config-prd -n sales"
 alias kbt="kubectl --kubeconfig ~/.kube/config -n sales"
 alias klo="kubectl --kubeconfig ~/.kube/config-local -n sales"
 alias eg="exa --long --header --inode --git"
+alias b="buku --suggest"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
