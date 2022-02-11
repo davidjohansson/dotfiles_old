@@ -2,6 +2,10 @@
 # functions
 ####################
 
+function swagger() {
+    awk '{print $1"/swagger-ui/index.html"}'
+}
+
 function zshaddhistory() {
 	echo "${1%%$'\n'}|${PWD}   " >> ~/.zsh_history_ext
 }

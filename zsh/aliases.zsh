@@ -3,8 +3,10 @@ alias git='LANG=en_US git'
 alias cl="clear"
 alias msr="mvn spring-boot:run"
 alias xopen="xargs -I {} open {}"
+alias xcurl="xargs -I {} curl -X 'GET' {} -H 'accept: application/json'"
 alias xnmd="xargs nvim '+set nospell'"
 alias typora="open -a typora"
+
 alias xtyp="xargs open -a typora"
 alias zx="zx --quite"
 alias ..="cd .."
@@ -23,6 +25,7 @@ alias kbt="kubectl --kubeconfig ~/.kube/config -n sales"
 alias klo="kubectl --kubeconfig ~/.kube/config-local -n sales"
 alias eg="exa --long --header --inode --git"
 alias b="buku --suggest"
+alias bm="buku -p -f 40 | fzf | cut -f1"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'
