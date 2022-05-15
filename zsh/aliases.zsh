@@ -6,6 +6,7 @@ alias xopen="xargs -I {} open {}"
 alias xcurl="xargs -I {} curl -X 'GET' {} -H 'accept: application/json'"
 alias xnmd="xargs nvim '+set nospell'"
 alias typora="open -a typora"
+alias s="scmd"
 
 alias xtyp="xargs open -a typora"
 alias zx="zx --quite"
@@ -15,17 +16,31 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias pd="pushd ~/.dotfiles"
-alias k="kubectl"
-alias ks="kubectl -n sales"
+
+alias k="kubectl --kubeconfig ~/.kube/config-bt1 -n sales"
+alias kbt1="kubectl --kubeconfig ~/.kube/config-bt1 -n sales"
 alias knr="kubectl --kubeconfig ~/.kube/config-nr -n sales"
-alias k9nr="k9s --kubeconfig ~/.kube/config-nr -n sales"
-alias k9pr="k9s --kubeconfig ~/.kube/config-prd -n sales"
 alias kpr="kubectl --kubeconfig ~/.kube/config-prd -n sales"
-alias kbt="kubectl --kubeconfig ~/.kube/config -n sales"
-alias klo="kubectl --kubeconfig ~/.kube/config-local -n sales"
+alias ksu="kubectl --kubeconfig ~/.kube/config-support -n sales"
+alias kos="kubectl --kubeconfig ~/.kube/config-os -n sales-poc"
+alias ocos="oc --config=~/.kube/config-os -n sales-poc"
+
+alias k9sbt1="k9s --kubeconfig ~/.kube/config-bt1 -n sales"
+alias k9snr="k9s --kubeconfig ~/.kube/config-nr -n sales"
+alias k9spr="k9s --kubeconfig ~/.kube/config-prd -n sales"
+alias k9ssu="k9s --kubeconfig ~/.kube/config-support -n delivery"
+alias k9sos="k9s --kubeconfig ~/.kube/config-os -n sales-poc"
+
 alias eg="exa --long --header --inode --git"
 alias b="buku --suggest"
 alias bm="buku -p -f 40 | fzf | cut -f1"
+alias bmo="buku -p -f 40 | fzf | cut -f1 | xopen"
+alias bmp="buku -p -f 40 | fzf | cut -f1 | tee >(pbcopy)"
+alias bms="buku -p -f 40 | fzf | cut -f1  | swagger | xopen"
+
+alias disp1="/usr/local/bin/display_manager.py res 2560 1490 60"
+
+alias disp2="/usr/local/bin/display_manager.py res 3360 1890 60"
 
 # reload zsh config
 alias reload!='RELOAD=1 source ~/.zshrc'

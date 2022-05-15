@@ -6,6 +6,9 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
+# Synchronizerade panes, tryck Ctrl S
+bind -n C-s set-window-option synchronize-panes
+
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -15,9 +18,7 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 setw -g mode-keys vi
-
-#Ctrl l conflicts with vim-tmux-navigator, rebind to prefix ctrl l
-bind-key C-l send-keys "clear"\; send-keys "Enter"
+set-window-option -g mode-keys vi
 
 
 # Copy/paste support for tmux 2.4
